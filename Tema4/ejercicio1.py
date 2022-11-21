@@ -25,4 +25,16 @@ def insertar_nodo(lista_nodos, nodo):
     for i in range(len(lista_nodos)):
         if nodo.frecuencia < lista_nodos[i].frecuencia:
             lista_nodos.insert(i, nodo)
-        
+        if i== len(lista_nodos)-1: #Si llegamos al final de la lista y no hemos insertado el nodo, lo insertamos al final de la lista
+            lista_nodos.append(nodo)
+            break
+    return lista_nodos
+
+
+#probamos la funcion ordenar_nodos
+
+lista_nodos= [nodoArbol('I',0.28), nodoArbol('N',0.16), nodoArbol('T',0.08), nodoArbol('E',0.16), nodoArbol('L',0.08), nodoArbol('G',0.08), nodoArbol('C',0.08), nodoArbol('A',0.08)]
+lista_nodos= ordenar_nodos(lista_nodos)
+for nodo in lista_nodos:
+    print(nodo.simbolo, nodo.frecuencia)
+
