@@ -15,7 +15,7 @@ class nodoArbol(object):
         self.derecha= None
         self.padre= None
 
-def  ordenar_nodos(lista_nodos):
+def  ordenar_nodos(lista_nodos): 
     '''Ordenamos la lista tanto por frecuencia como alfabeticamente'''
     lista_nodos= sorted(lista_nodos, key=lambda x: x.simbolo)
     lista_nodos= sorted(lista_nodos, key=lambda x: x.frecuencia)
@@ -61,4 +61,7 @@ def buscar(raiz, clave):
             pos= buscar(raiz.derecha, clave)
     return pos
 
-    
+def comprimir(mensaje,raiz):
+    codigo=[]
+    mensaje
+
