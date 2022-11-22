@@ -39,11 +39,12 @@ def arbol_huffman(simbolos, frecuencias):
     while len(nodos)>1: #mientras haya mas de un nodo en la lista
         nodo= nodoArbol('XX', nodos[0].frecuencia + nodos[1].frecuencia) #creamos un nodo padre con la suma de las frecuencias de los dos primeros nodos
         nodo.izquierda= nodos[0] #el primer nodo de la lista pasa a ser el hijo izquierdo del nodo padre
+        nodo.izquierda.padre= nodo #el padre del nodo izquierdo es el nodo padre
         nodo.derecha= nodos[1] #el segundo nodo de la lista pasa a ser el hijo derecho del nodo padre
-        nodo.derecha.padre= nodo #el nodo padre pasa a ser el padre del nodo derecho
+        nodo.derecha.padre= nodo #el padre del nodo derecho es el nodo padre
         nodos=insertar_nodo(nodos, nodo) #insertamos el nodo padre en la lista de nodos
-        nodos.pop(0) #eliminamos el primer nodo de la lista
-        nodos.pop(1) #eliminamos el segundo nodo de la lista
+        nodos.pop(1) #eliminamos el primer nodo de la lista
+        nodos.pop(0) #eliminamos el segundo nodo de la lista
     return nodos[0] #devolvemos el unico nodo que queda en la lista, que sera la raiz del arbol
 
 def buscar(raiz, clave):
@@ -60,7 +61,7 @@ def buscar(raiz, clave):
             pos= buscar(raiz.derecha, clave)
     return pos
 
-def codificar(raiz, mensaje):
+def codificar(mensaje,raiz):
     '''Funcion que codifica un simbolo en el arbol de huffman'''
     codigo=[]
     mensaje= mensaje[::-1]
@@ -74,9 +75,9 @@ def codificar(raiz, mensaje):
             nodo= nodo.padre
         codigo= codigo[::-1]
         return ''.join(codigo)
-        
 
-def decodificar(raiz, codigo):
+
+def decodificar(codigo,raiz):
     '''Funcion que decodifica un codigo en el arbol de huffman'''
     mensaje=[]
     nodo= raiz
