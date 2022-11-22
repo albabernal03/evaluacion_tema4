@@ -83,8 +83,8 @@ def decodificar(codigo,raiz):
     nodo= raiz
     for c in codigo:
         if nodo.derecha is None: #si el nodo no tiene hijo derecho
-            mensaje.append(nodo.simbolo)
-            nodo= raiz
+            mensaje.append(nodo.simbolo) #añadimos el simbolo del nodo al mensaje
+            nodo= raiz #volvemos al nodo raiz
         if c=='0':
             nodo= nodo.izquierda
         else:
@@ -94,16 +94,17 @@ def decodificar(codigo,raiz):
 
     return mensaje
 
+#TODO: REVISAR CODIGO
 def main():
     simbolos= ['A', 'F', '1', '3', 'O', 'M', 'T']
     frecuencias= [0.2, 0.17, 0.13, 0.21, 0.05, 0.09, 0.15]
     raiz= arbol_huffman(simbolos, frecuencias)
     mensaje= 'AFO3'
-    codigo= codificar(raiz, mensaje)
-    print ('Mensaje codificado: ', codigo)
-    mensaje= decodificar(raiz, codigo)
-    print ('Mensaje decodificado: ', mensaje) 
+    codigo= codificar(mensaje, raiz)
+    print(codigo)
+    mensaje= decodificar(codigo, raiz)
+    print(mensaje)
 
 if __name__ == '__main__':
-
     main()
+
