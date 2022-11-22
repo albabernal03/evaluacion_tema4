@@ -40,12 +40,11 @@ def arbol_huffman(simbolos, frecuencias):
         nodo= nodoArbol('XX', nodos[0].frecuencia + nodos[1].frecuencia) #creamos un nodo padre con la suma de las frecuencias de los dos primeros nodos
         nodo.izquierda= nodos[0] #el primer nodo de la lista pasa a ser el hijo izquierdo del nodo padre
         nodo.derecha= nodos[1] #el segundo nodo de la lista pasa a ser el hijo derecho del nodo padre
-        nodos[0].padre= nodo #el nodo padre pasa a ser el padre del primer nodo de la lista
-        nodos[1].padre= nodo #el nodo padre pasa a ser el padre del segundo nodo de la lista
-        nodos= nodos[2:] #eliminamos los dos primeros nodos de la lista
-        nodos= insertar_nodo(nodos, nodo) #insertamos el nodo padre en la lista de nodos
-
-    return nodos[0] #devolvemos el nodo raiz del arbol
+        nodo.derecha.padre= nodo #el nodo padre pasa a ser el padre del nodo derecho
+        nodos=insertar_nodo(nodos, nodo) #insertamos el nodo padre en la lista de nodos
+        nodos.pop(0) #eliminamos el primer nodo de la lista
+        nodos.pop(1) #eliminamos el segundo nodo de la lista
+    return nodos[0] #devolvemos el unico nodo que queda en la lista, que sera la raiz del arbol
 
 def buscar(raiz, clave):
     '''Funcion que busca un simbolo en el arbol de huffman'''
@@ -61,7 +60,49 @@ def buscar(raiz, clave):
             pos= buscar(raiz.derecha, clave)
     return pos
 
-def comprimir(mensaje,raiz):
+def codificar(raiz, mensaje):
+    '''Funcion que codifica un simbolo en el arbol de huffman'''
     codigo=[]
-    mensaje
+    mensaje= mensaje[::-1]
+    for m in mensaje:
+        nodo= buscar(raiz, m)
+        while nodo.padre is not None:
+            if nodo.padre.izquierda==nodo:
+                codigo.append('0')
+            else:
+                codigo.append('1')
+            nodo= nodo.padre
+        codigo= codigo[::-1]
+        return ''.join(codigo)
+        
 
+def decodificar(raiz, codigo):
+    '''Funcion que decodifica un codigo en el arbol de huffman'''
+    mensaje=[]
+    nodo= raiz
+    for c in codigo:
+        if nodo.derecha is None: #si el nodo no tiene hijo derecho
+            mensaje.append(nodo.simbolo)
+            nodo= raiz
+        if c=='0':
+            nodo= nodo.izquierda
+        else:
+            nodo= nodo.derecha
+    mensaje.append(nodo.simbolo)
+    mensaje= ''.join(mensaje)
+
+    return mensaje
+
+def main():
+    simbolos= ['A', 'F', '1', '3', 'O', 'M', 'T']
+    frecuencias= [0.2, 0.17, 0.13, 0.21, 0.05, 0.09, 0.15]
+    raiz= arbol_huffman(simbolos, frecuencias)
+    mensaje= 'AFO3'
+    codigo= codificar(raiz, mensaje)
+    print ('Mensaje codificado: ', codigo)
+    mensaje= decodificar(raiz, codigo)
+    print ('Mensaje decodificado: ', mensaje) 
+
+if __name__ == '__main__':
+
+    main()
