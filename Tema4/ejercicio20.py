@@ -8,3 +8,15 @@ with open('/Users/hectorbernaltrujillo/Documents/informática/Programación py
 nombres= []
 for i in range(1, len(lista)): 
     nombres.append(lista[i][1])
+
+#CREAMOS UNA LISTA CON LOS NUMEROS:
+numeros= []
+for i in range(1, len(lista)): 
+    numeros.append(lista[i][0])
+
+#CREAMOS UNA LISTA CON LAS DEBILIDADES:
+debilidades= []
+for i in range(1, len(lista)):
+    debilidades.append(lista[i][2])
+
+    
