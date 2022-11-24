@@ -29,7 +29,23 @@ class nodoArbol(object):
         self.izq = None
         self.der = None
 
+def insertar_nodo(raiz, dato):
+    if raiz == None:
+        raiz = nodoArbol(dato)
+    elif dato < raiz.info:
+        raiz.izq = insertar_nodo(raiz.izq, dato)
+    else:
+        raiz.der = insertar_nodo(raiz.der, dato)
+    return raiz
 
-
-
+def buscar(raiz,clave):
+    pos= None 
+    if raiz != None:
+        if clave == raiz.info:
+            pos = raiz
+        elif clave < raiz.info:
+            pos = buscar(raiz.izq,clave)
+        else:
+            pos = buscar(raiz.der,clave)
+    return pos
 
