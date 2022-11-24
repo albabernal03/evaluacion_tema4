@@ -89,7 +89,7 @@ raiz2 = None
 for i in range(len(numeros)):
     raiz2 = insertar_nodo(raiz2, numeros[i])
 
-#DEBILIDADES:
+#TIPOS:
 raiz3 = None
 for i in range(len(tipos)):
     raiz3 = insertar_nodo(raiz3, tipos[i])
@@ -100,7 +100,7 @@ for i in range(len(tipos)):
 #APARTADO B:
 
 #Buscamos el pokemon que queremos por su numero y nos devuelve su nombre y su tipo:
-def informacion_pokemon(numero, numeros):
+def informacion_pokemon_numero(numero, numeros):
     if numero in numeros:
         posicion = numeros.index(numero)
         nombre = nombres[posicion]
@@ -111,7 +111,7 @@ def informacion_pokemon(numero, numeros):
 
 #Buscamos por proximidad el pokemon que queremos por su nombre, es decir si ponemos bul imprime todos con bul y nos devuelve su numero y su tipo:
 
-def proximidad(nombre, nombres):
+def proximidad_nombres(nombre, nombres):
     for i in range(len(nombres)):
         if nombre in nombres[i]:
             posicion = nombres.index(nombres[i])
@@ -120,7 +120,49 @@ def proximidad(nombre, nombres):
             print('El pokemon', nombres[i], 'tiene el numero', numero, 'y es de tipo', tipo)
 
 
+#APARTADO C:
+
+#Mostramos TODOS los pokemon que sean de un tipo determinado:
+#def mostrar_pokemon_tipo(tipo, tipos):
+ #TODO: hacer esta funciom
 
 
+#APARTADO D:
+
+#Realizar un listado en orden ascendente por numero
+#print('Listado ascendente por numero:')
+#inorden(raiz2)
+
+#Realizar un listado en orden ascendente por nombre
+#print('Listado ascendente por nombre:')
+#inorden(raiz)
+
+#Listado por nivel por nombre
+#print('Listado por nivel por nombre:')
+#por_nivel(raiz)
+
+
+
+#APARTADO E:
+
+#Mostra todos los pokemons que son debiles frente a Jolteon(es decir, que tengan Electric en su lista de debilidades), Lycanroc (es decir, que tengan Fighting en su lista de debilidades) y Tyranrum (es decir, que tengan Dragon en su lista de debilidades).
+
+def debil(Jolteon, Lycanroc, Tyrantrum):
+    for i in range(len(tipos)):
+        if 'Electric' in tipos[i]:
+            posicion = tipos.index(tipos[i])
+            nombre = nombres[posicion]
+            numero = numeros[posicion]
+            print('El pokemon', nombre, 'tiene el numero', numero, 'y es debil frente a Jolteon')
+        if 'Fighting' in tipos[i]:
+            posicion = tipos.index(tipos[i])
+            nombre = nombres[posicion]
+            numero = numeros[posicion]
+            print('El pokemon', nombre, 'tiene el numero', numero, 'y es debil frente a Lycanroc')
+        if 'Dragon' in tipos[i]:
+            posicion = tipos.index(tipos[i])
+            nombre = nombres[posicion]
+            numero = numeros[posicion]
+            print('El pokemon', nombre, 'tiene el numero', numero, 'y es debil frente a Tyrantrum')
 
 
