@@ -68,4 +68,8 @@ def por_nivel(raiz):
         if nodo.der != None:
             cola.append(nodo.der)
 
-
+def preorden(raiz): #Recorrido preorden: nos genera una replica del arbol
+    if raiz != None:
+        print(raiz.info)
+        preorden(raiz.izq)
+        preorden(raiz.der)
