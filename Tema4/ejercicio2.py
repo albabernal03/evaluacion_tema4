@@ -130,13 +130,13 @@ def proximidad_nombres(nombre, nombres):
 #APARTADO D:
 
 #Realizar un listado en orden ascendente por numero
-inorden(raiz2)
+#inorden(raiz2)
 
 #Realizar un listado en orden ascendente por nombre
-inorden(raiz)
+#inorden(raiz)
 
 #Listado por nivel por nombre
-por_nivel(raiz)
+#por_nivel(raiz)
 
 
 
