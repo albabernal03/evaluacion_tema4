@@ -1,6 +1,6 @@
 import csv 
 
-with open('/Users/hectorbernaltrujillo/Documents/informática/Programación python/ff/evaluacion_tema4/Tema4/pokemon.csv', 'r') as f:
+with open('/Users/hectorbernaltrujillo/Documents/informática/Programación python/ff/evaluacion_tema4/pokemon.csv', 'r') as f:
     reader = csv.reader(f)
     lista = list(reader)
 
@@ -94,3 +94,16 @@ raiz3 = None
 for i in range(len(debilidades)):
     raiz3 = insertar_nodo(raiz3, debilidades[i])
 
+
+#APARTADO B:
+
+#mostrar todos los datos de un Pokémon a partir de su número
+
+def mostrar_datos(numero):
+    '''Funcion que nos imprime los datos de un pokemon a partir de su numero'''
+    pos = buscar(raiz2, numero)
+    if pos != None:
+        print('El pokemon con el numero', numero, 'es', pos.izq.info, 'y su debilidad es', pos.der.info)
+    else:
+        print('El numero no esta en el arbol')
+        
