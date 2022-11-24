@@ -49,3 +49,9 @@ def buscar(raiz,clave):
             pos = buscar(raiz.der,clave)
     return pos
 
+def inorden(raiz): #Recorrido inorden: esta funcion nos debuelve una lista con los datos del arbol en orden de menor a mayor
+    if raiz != None:
+        inorden(raiz.izq)
+        print(raiz.info)
+        inorden(raiz.der)
+        
