@@ -109,7 +109,15 @@ def informacion_pokemon(numero, numeros):
     else:
         print('El pokemon no existe')
 
+#Buscamos por proximidad el pokemon que queremos por su nombre, es decir si ponemos bul imprime todos con bul y nos devuelve su numero y su tipo:
 
+def proximidad(nombre, nombres):
+    for i in range(len(nombres)):
+        if nombre in nombres[i]:
+            posicion = nombres.index(nombres[i])
+            numero = numeros[posicion]
+            tipo = tipos[posicion]
+            print('El pokemon', nombres[i], 'tiene el numero', numero, 'y es de tipo', tipo)
 
 
 
