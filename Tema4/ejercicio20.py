@@ -54,4 +54,18 @@ def inorden(raiz): #Recorrido inorden: esta funcion nos debuelve una lista con l
         inorden(raiz.izq)
         print(raiz.info)
         inorden(raiz.der)
-        
+
+def por_nivel(raiz):
+    '''Funcion que nos imprime los datos del arbol por niveles'''
+    cola = []
+    cola.append(raiz)
+
+    while len(cola) != 0:
+        nodo = cola.pop(0)
+        print(nodo.info)
+        if nodo.izq != None:
+            cola.append(nodo.izq)
+        if nodo.der != None:
+            cola.append(nodo.der)
+
+
