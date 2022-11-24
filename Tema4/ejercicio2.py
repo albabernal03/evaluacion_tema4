@@ -17,13 +17,12 @@ numeros = []
 for i in range(1, len(lista)):
     numeros.append(lista[i][0]) #Cogemos la columna 0 que es la de los numeros
 
-#Creamos una lista con las debilidades de los pokemons
-debilidades = []
+#Creamos una lista con los tipos de los pokemons
+tipos = []
 for i in range(1, len(lista)):
-    debilidades.append(lista[i][2]) #Cogemos la columna 2 que es la de las debilidades
+    tipos.append(lista[i][2]) #Cogemos la columna 2 que es la de los tipos
 
-
-#Creamos tres arboles donde sus indices son el nombre, el numero y la debilidad
+#Creamos tres arboles donde sus indices son el nombre, el numero y tipos
 
 class nodoArbol(object):
 
@@ -97,8 +96,8 @@ for i in range(len(numeros)):
 #Creamos el arbol de debilidades
 
 raiz3 = None
-for i in range(len(debilidades)):
-    raiz3 = insertar_nodo(raiz3, debilidades[i])
+for i in range(len(tipos)):
+    raiz3 = insertar_nodo(raiz3, tipos[i])
 
 #Mostramos los arboles
 

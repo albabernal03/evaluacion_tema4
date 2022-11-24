@@ -15,9 +15,9 @@ for i in range(1, len(lista)):
     numeros.append(lista[i][0]) #Cogemos la columna 0 que es la de los numeros
 
 #CREAMOS UNA LISTA CON LAS DEBILIDADES:
-debilidades= []
+tipos= []
 for i in range(1, len(lista)): 
-    debilidades.append(lista[i][2]) #Cogemos la columna 2 que es la de las debilidades
+    tipos.append(lista[i][2]) #Cogemos la columna 2 que es los tipos
 
 
 #CREAMOS EL ARBOL:
@@ -91,19 +91,28 @@ for i in range(len(numeros)):
 
 #DEBILIDADES:
 raiz3 = None
-for i in range(len(debilidades)):
-    raiz3 = insertar_nodo(raiz3, debilidades[i])
+for i in range(len(tipos)):
+    raiz3 = insertar_nodo(raiz3, tipos[i])
+
+
 
 
 #APARTADO B:
 
-#mostrar todos los datos de un Pokémon a partir de su número
-
-def mostrar_datos(numero):
-    '''Funcion que nos imprime los datos de un pokemon a partir de su numero'''
-    pos = buscar(raiz2, numero)
-    if pos != None:
-        print('El pokemon con el numero', numero, 'es', pos.izq.info, 'y su debilidad es', pos.der.info)
+#Buscamos el pokemon que queremos por su numero y nos devuelve su nombre y su tipo:
+def informacion_pokemon(numero, numeros):
+    if numero in numeros:
+        posicion = numeros.index(numero)
+        nombre = nombres[posicion]
+        tipo = tipos[posicion]
+        print('El pokemon numero', numero, 'se llama', nombre, 'y es de tipo', tipo)
     else:
-        print('El numero no esta en el arbol')
-        
+        print('El pokemon no existe')
+
+
+
+
+
+
+
+
