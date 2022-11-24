@@ -73,3 +73,24 @@ def preorden(raiz): #Recorrido preorden: nos genera una replica del arbol
         print(raiz.info)
         preorden(raiz.izq)
         preorden(raiz.der)
+
+
+#APARATADO A:
+
+#creamos tres arboles, uno con los nombres, otro con los numeros y otro con las debilidades
+
+#NOMBRES:
+raiz = None
+for i in range(len(nombres)):
+    raiz = insertar_nodo(raiz, nombres[i])
+
+#NUMEROS:
+raiz2 = None
+for i in range(len(numeros)):
+    raiz2 = insertar_nodo(raiz2, numeros[i])
+
+#DEBILIDADES:
+raiz3 = None
+for i in range(len(debilidades)):
+    raiz3 = insertar_nodo(raiz3, debilidades[i])
+
