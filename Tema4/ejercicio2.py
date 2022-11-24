@@ -134,7 +134,6 @@ def proximidad_nombres(nombre, nombres):
 
 #Realizar un listado en orden ascendente por nombre
 #inorden(raiz)
-
 #Listado por nivel por nombre
 #por_nivel(raiz)
 
@@ -184,7 +183,4 @@ def valores_unicos(raiz3, unicos):
         unicos = valores_unicos(raiz3.der, unicos) #recorremos el arbol por la derecha
     return unicos
 
-#probamos la funcion
-unicos = {}
-unicos = valores_unicos(raiz3, unicos)
-print(unicos)
+
