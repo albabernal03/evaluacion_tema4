@@ -161,6 +161,7 @@ def debil(Jolteon, Lycanroc, Tyrantrum):
             numero = numeros[posicion]
             print('El pokemon', nombre, 'tiene el numero', numero, 'y es debil frente a Tyrantrum')
 
+
 #APARTADO F:
 
 #mostrar todos los pokemons hay en el arbol
@@ -183,4 +184,6 @@ def valores_unicos(raiz3, unicos):
         unicos = valores_unicos(raiz3.der, unicos) #recorremos el arbol por la derecha
     return unicos
 
-
+unicos = {}
+unicos = valores_unicos(raiz3, unicos)
+print('Hay', len(unicos), 'pokemons diferentes')
