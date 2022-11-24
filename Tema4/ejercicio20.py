@@ -1,5 +1,5 @@
 import csv 
-
+import numpy as np
 with open('/Users/hectorbernaltrujillo/Documents/informática/Programación python/ff/evaluacion_tema4/pokemon.csv', 'r') as f:
     reader = csv.reader(f)
     lista = list(reader)
@@ -130,16 +130,13 @@ def proximidad_nombres(nombre, nombres):
 #APARTADO D:
 
 #Realizar un listado en orden ascendente por numero
-#print('Listado ascendente por numero:')
-#inorden(raiz2)
+inorden(raiz2)
 
 #Realizar un listado en orden ascendente por nombre
-#print('Listado ascendente por nombre:')
-#inorden(raiz)
+inorden(raiz)
 
 #Listado por nivel por nombre
-#print('Listado por nivel por nombre:')
-#por_nivel(raiz)
+por_nivel(raiz)
 
 
 
@@ -165,4 +162,29 @@ def debil(Jolteon, Lycanroc, Tyrantrum):
             numero = numeros[posicion]
             print('El pokemon', nombre, 'tiene el numero', numero, 'y es debil frente a Tyrantrum')
 
+#APARTADO F:
 
+#mostrar todos los pokemons hay en el arbol
+
+def mostrar_pokemons(raiz):
+    if raiz != None:
+        mostrar_pokemons(raiz.izq)
+        print(raiz.info)
+        mostrar_pokemons(raiz.der)
+
+#mostramos la cantidad de pokemons que hay en el arbol
+def valores_unicos(raiz3, unicos):
+    '''Funcion que nos devuelve la cantidad de valores unicos que hay en el arbol'''
+    if raiz3 is not None:
+        if raiz3.info not in unicos:
+            unicos[raiz3.info] = 1
+        else:
+            unicos[raiz3.info] = unicos[raiz3.info] + 1
+        unicos = valores_unicos(raiz3.izq, unicos) #recorremos el arbol por la izquierda
+        unicos = valores_unicos(raiz3.der, unicos) #recorremos el arbol por la derecha
+    return unicos
+
+#probamos la funcion
+unicos = {}
+unicos = valores_unicos(raiz3, unicos)
+print(unicos)
