@@ -56,15 +56,35 @@ def iniciar():
         if opcion == '1':
             print('.....Cargando.....')
             time.sleep(2)
-            mensaje= input('Introduce el mensaje a codificar: ')
             simbolos= ['A', 'F', '1', '3', 'O', 'M', 'T']
             frecuencias= [0.2, 0.17, 0.13, 0.21, 0.05, 0.09, 0.15]
             raiz= arbol_huffman(simbolos, frecuencias)
-            codigo= codificar(mensaje, raiz)
-            print(codigo)
-            mensaje= decodificar(codigo, raiz)
-            print(mensaje)
+            print('\nObtenemos los siguientes códigos por cada símbolo:')
+            print('A: ', codificar('A', raiz))
+            print('F: ', codificar('F', raiz))
+            print('1: ', codificar('1', raiz))
+            print('3: ', codificar('3', raiz))
+            print('0: ', codificar('0', raiz)) #TODO: Falla al codificar el 0 
+            print('M: ', codificar('M', raiz))
+            print('T: ', codificar('T', raiz))
 
+            while True:
+                print('¿Quieres codificar algun mensaje? (SI/NO)')
+                respuesta= input()
+                if respuesta.upper()== 'SI':
+                    print('tabla de simbolos: ', simbolos)
+                    print('Introduce el mensaje a codificar: ')
+                    mensaje= input()
+                    print('Mensaje codificado: ', codificar(mensaje, raiz))
+                    print('Mensaje decodificado: ', decodificar(codificar(mensaje, raiz), raiz))
+                elif respuesta.upper()== 'NO':
+                    print('....Volviendo al menu....')
+                    break
+                else:
+                    print('Introduce SI o NO')
+
+
+            
         elif opcion == '2':
             
             print('.....Cargando.....')
