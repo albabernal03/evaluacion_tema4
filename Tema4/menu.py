@@ -1,5 +1,6 @@
 from ejercicio1 import *
 from ejercicio2 import *
+from ejercicio3 import *
 import time
 
 import csv 
@@ -159,10 +160,30 @@ def iniciar():
                     print('Opcion no valida')
 
         elif opcion == '3':
-            
+                grafo = Grafo()
+                grafo = crear_grafo(grafo)
+                print("El grafo creado es: ")
+                print(grafo)
+                print("El arbol de expansión minima de las maravillas arquitectónicas es: ")
+                print(kruskal(grafo, "Arquitectonica"))
+                print("El arbol de expansión minima de las maravillas naturales es: ")
+                print(kruskal(grafo, "Natural"))
+                print("Los paises que tienen maravillas arquitectónicas y naturales son: ")
+                print(pais_con_maravilla_arquitectonica_y_natural(grafo))
+
+        elif opcion == '4':
+            print('Gracias por usar el programa')
+            break
+
+        else:
+            print('Opcion no valida')
+
+if __name__ == '__main__':
+    main()
+    
 
 
-iniciar()
+
 
 
                     
