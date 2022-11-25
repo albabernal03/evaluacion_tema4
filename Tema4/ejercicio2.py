@@ -184,6 +184,3 @@ def valores_unicos(raiz3, unicos):
         unicos = valores_unicos(raiz3.der, unicos) #recorremos el arbol por la derecha
     return unicos
 
-unicos = {}
-unicos = valores_unicos(raiz3, unicos)
-print('Hay', len(unicos), 'pokemons diferentes')
