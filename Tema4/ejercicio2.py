@@ -123,8 +123,13 @@ def proximidad_nombres(nombre, nombres):
 #APARTADO C:
 
 #Mostramos TODOS los pokemon que sean de un tipo determinado:
-#def mostrar_pokemon_tipo(tipo, tipos):
- #TODO: hacer esta funciom
+def mostrar_pokemon_tipo(tipo, tipos):
+    for i in range(len(tipos)):
+        if tipo == tipos[i]:
+            posicion = tipos.index(tipos[i])
+            numero = numeros[posicion]
+            nombre = nombres[posicion]
+            print('El pokemon', nombre, 'tiene el numero', numero, 'y es de tipo', tipo)
 
 
 #APARTADO D:
