@@ -116,7 +116,7 @@ def iniciar():
                         print(f'.....Cargando en {i}.....')
                     print('Introduce el tipo de pokemon que quieres buscar: ')
                     tipo = input()
-                    tipo_pokemon(tipo, tipos)
+                    mostrar_pokemon_tipo(tipo, tipos)
 
                 elif opcion == '3':
                     for i in [3,2,1]:
@@ -179,8 +179,8 @@ def iniciar():
             print('Opcion no valida')
 
 if __name__ == '__main__':
-    main()
-    
+    iniciar()
+
 
 
 
